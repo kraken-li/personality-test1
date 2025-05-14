@@ -1,4 +1,9 @@
-import { sdk } from 'https://esm.sh/@farcaster/frame-sdk';
+(async () => {
+  const module = await import('https://esm.sh/@farcaster/frame-sdk');
+  const sdk = module.sdk;
+
+  console.log("Warpcast SDK Loaded:", sdk); // Check if it's working
+})();
 
 const app = document.getElementById('app');
 
