@@ -1,8 +1,0 @@
-{
-    "name": "Personality Test - Discover Yourself!",
-    "version": "1.0.0",
-    "description": "An interactive mini-app to reveal your personality on Warpcast.",
-    "main": "index.html",
-    "author": "Erlina Ripke",
-    "license": "MIT"
-  }
