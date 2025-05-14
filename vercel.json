@@ -4,6 +4,13 @@
     {
       "src": "index.html",
       "use": "@vercel/static"
+    },
+    {
+      "src": "src/app.js",
+      "use": "@vercel/static",
+      "headers": {
+        "Content-Type": "application/javascript"
+      }
     }
   ],
   "routes": [
