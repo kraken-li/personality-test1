@@ -2,15 +2,17 @@
   "version": 2,
   "builds": [
     { "src": "index.html", "use": "@vercel/static" },
-    { "src": "src/app.js", "use": "@vercel/static" }
+    { "src": "src/app.mjs", "use": "@vercel/static" }
   ],
   "headers": [
     {
-      "source": "/src/app.js",
+      "source": "/src/app.mjs",
       "headers": [
         { "key": "Content-Type", "value": "application/javascript" }
       ]
     }
   ],
-  "routes": [{ "src": "/(.*)", "dest": "/index.html" }]
+  "routes": [
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
 }
