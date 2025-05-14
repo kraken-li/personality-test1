@@ -2,7 +2,6 @@ import { sdk } from 'https://esm.sh/@farcaster/frame-sdk';
 
 const app = document.getElementById('app');
 
-// Expanded Question List
 const questions = [
   { question: "What’s your favorite weekend activity?", answers: [{ text: "Hanging out with friends", type: "Extrovert" }, { text: "Reading alone at home", type: "Introvert" }] },
   { question: "How do you handle challenges?", answers: [{ text: "Find a quick solution", type: "Practical" }, { text: "Think through every possibility", type: "Reflective" }] },
@@ -48,9 +47,13 @@ function showResult() {
   
   app.innerHTML = `
     <h2>Your Personality Type: ${personality}!</h2>
-    <p>Your hidden traits have been revealed! Share on Warpcast and let your friends take the test too!</p>
-    <button onclick="shareResult('${personality}')">Share on Warpcast</button>
+    <p>Share your result with friends on Warpcast!</p>
+    <button id="shareButton">Share on Warpcast</button>
   `;
+
+  document.getElementById("shareButton").addEventListener("click", function() {
+    shareResult(personality);
+  });
 }
 
 function shareResult(personality) {
@@ -62,12 +65,12 @@ function shareResult(personality) {
         title: "Try the Test!",
         action: {
           type: "launch_frame",
-          url: "https://yourapp.vercel.app",
+          url: "https://personality-test1.vercel.app",
           name: "Personality Test"
         }
       }
     })]
-  });
+  }).catch(error => console.error("Warpcast share failed:", error));
 }
 
 showQuestion();
